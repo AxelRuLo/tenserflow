@@ -29,6 +29,8 @@ if __name__ == "__main__":
     # Train the perceptron using stochastic gradient descent
     # with a validation split of 20%
     historial = model.fit(x, y, epochs=400, verbose=False)
+    print(historial.history['loss'])
+    
     result = model.predict(x)
     print(result)
 

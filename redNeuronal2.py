@@ -16,7 +16,7 @@ def leer(archivo:str):
         x.append([x1[i],x2[i],x3[i]])
 
     y =  np.array(df["Y"].values,"float64")
-
+    x = np.array(x)
     return x,y
 
 
@@ -34,5 +34,6 @@ if __name__ == "__main__":
     model.compile(loss='mean_squared_error', optimizer=tf.keras.optimizers.Adam(n)) 
 
     historial = model.fit(x, y, epochs=250, verbose=False)
+    print(historial.history['loss'])
     result = model.predict(x)
     print(result)
